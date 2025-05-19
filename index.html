@@ -43,7 +43,8 @@
     <section id="modelos" class="modelos">
       <h2>MODELOS DISPONÍVEIS</h2>
       <p>Conheça os estilos exclusivos Mimanchi.<br>
-      Clique para visualizar todos os modelos em nossa galeria.</p>
+      Cada modelo foi pensado para unir elegância, praticidade e personalidade.</p>
+      <P>Clique para visualizar os detalhes e especificações de cada peça.</P>
       <div class="modelos-lista">
         <div class="modelo">
           <div>
@@ -51,7 +52,9 @@
             <p>A Bag Jasmin é o modelo compacto da coleção Mimanchi 2025. Feita à mão com fio de malha e acabamento artesanal, é ideal para quem busca praticidade com estilo. Seu tamanho reduzido permite levar o essencial com elegância, sendo perfeita para o dia a dia e momentos especiais.
             Com alça confortável e visual autêntico, a Jasmin combina leveza e personalidade em cada detalhe.</p>
             <div class="preco">R$ <span>180,00</span></div>
-            <button>CONFIRA AQUI BAG JASMIN!</button>
+            <button class="btn-especificacoes" data-img="./imgs/especificacoes/especificacaojasmin.jpg">
+  CLIQUE PARA VISUALIZAR AS ESPECIFICAÇÕES
+</button>
           </div>
           <div class="modelo-img"><img src="./imgs/modelos/bagjasmin.jpg" alt="Bag Jasmin"></div>
         </div>
@@ -62,7 +65,9 @@
             <p>A Bag Floratta é o modelo maior da Mimanchi, pensada para quem precisa de mais espaço com sofisticação. Seu design estruturado e artesanal garante resistência e estilo em uma única peça.
             Com uma alça reforçada e acabamento impecável, a Floratta une funcionalidade e presença — ideal para quem quer um acessório marcante para todas as ocasiões.</p>
             <div class="preco">R$ <span>187,00</span></div>
-            <button>CONFIRA AQUI BAG JASMIN!</button>
+            <button class="btn-especificacoes" data-img="./imgs/especificacoes/especificacaofloratta.jpg">
+  CLIQUE PARA VISUALIZAR AS ESPECIFICAÇÕES
+</button>
           </div>
         </div>
       </div>
@@ -164,7 +169,10 @@
         <span class="pix"><img src="./imgs/icons/pix.png" alt="Pix" class="icon-pagamento"> pix</span>
         <span class="dc"><img src="./imgs/icons/cartao.png" alt="Débito e Crédito" class="icon-pagamento"> débito e crédito</span>
       </div>
-      <p class="contato">Para encomendas, dúvidas ou personalizações, fale direto comigo pelo WhatsApp ou acompanhe nosso trabalho no Instagram.</p>
+     <a href="https://wa.me/5511969568837" target="_blank" class="botao-whatsapp">
+  Peça agora sua Bag diretamente pelo nosso WhatsApp!
+  <img src="./imgs/icons/whatsapp.png" alt="WhatsApp" class="icone-wpp">
+</a>
     </section>
   </main>
   <footer class="footer">
@@ -209,7 +217,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Mimanchi Bags - Todos os direitos reservados</p>
+      <p>&copy; 2025 Mimanchi Bags - Todos os direitos reservados</p>
     </div>
   </footer>
   <div id="modal" class="modal">
@@ -269,12 +277,14 @@
     });
 
     // Adiciona evento de clique nos botões
-    document.querySelectorAll('.modelo button').forEach(button => {
-      button.addEventListener('click', function() {
-        const imgSrc = this.closest('.modelo').querySelector('.modelo-img img').src;
-        abrirModal(imgSrc);
-      });
-    });
+    document.querySelectorAll('.btn-especificacoes').forEach(button => {
+  button.addEventListener('click', function () {
+    const imgSrc = this.getAttribute('data-img');
+    if (imgSrc) {
+      abrirModal(imgSrc);
+    }
+  });
+});
 
     fechar.addEventListener('click', () => {
       modal.style.display = "none";
